@@ -18,10 +18,14 @@ def test_multiply():
     assert calc.multiply(2, 3) == 6
     assert calc.multiply(-2, 3) == -6
     assert calc.multiply(0.1, 0.2) == pytest.approx(0.02)
+    assert calc.multiply(0, 5) == 0  # Testing zero multiplication branch
+    assert calc.multiply(5, 0) == 0  # Testing zero multiplication branch
 
 def test_divide():
     calc = Calculator()
     assert calc.divide(6, 2) == 3
     assert calc.divide(5, 2) == 2.5
+    assert calc.divide(0, 5) == 0  # Testing zero division branch
     with pytest.raises(ValueError):
         calc.divide(1, 0)
+
