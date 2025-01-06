@@ -8,6 +8,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -21,10 +23,9 @@ jobs:
     
     - name: Run tests with coverage
       run: |
-        pytest --cov=src  --cov-branch --cov-report=json
+        pytest --cov=src --cov-branch --cov-report=xml:coverage.xml
     
-    - name: Upload coverage report
-      uses: actions/upload-artifact@v3
-      with:
-        name: coverage-report
-        path: coverage.json
+    - name: Upload Coverage
+      env:
+        OTTERWISE_TOKEN: ${{ secrets.OTTERWISE_TOKEN }}
+      run: bash <(curl -s https://raw.githubusercontent.com/getOtterWise/bash-uploader/main/uploader.sh)
