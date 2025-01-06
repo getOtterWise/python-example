@@ -1,0 +1,1 @@
+[![OtterWise Coverage](https://img.shields.io/endpoint?url=https://otterwise.app/badge/github/getotterwise/python-example/coverage/da2ca5d5-e978-49e3-af42-31212524c408)](https://otterwise.app/github/getotterwise/python-example)
